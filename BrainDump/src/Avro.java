@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.avro.Schema;
@@ -46,16 +47,16 @@ public class Avro {
 		
 	}
 	
-	public void avroWriter(ArrayList<PedigreeRecord> pedigreeList) throws IOException{
+	public void avroWriter(List<PedigreeRecord> list) throws IOException{
 		Gson gson = new Gson();	
 		Schema schema = ReflectData.get().getSchema(PedigreeRecord.class);
-		System.out.println("my Schema: " + schema);
-		System.out.println("\n");
+//		System.out.println("my Schema: " + schema);
+//		System.out.println("\n");
 		ArrayList<String> jsonlist = new ArrayList<String>();
-	
-		for (PedigreeRecord record : pedigreeList){
+		
+		for (PedigreeRecord record : list){
+			
 			String json = gson.toJson(record);
-			System.out.println(json);
 			jsonlist.add(json);
 		}
 		

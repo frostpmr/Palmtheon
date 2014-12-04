@@ -2,8 +2,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,15 +18,17 @@ import jangada.*;
 public class SignatureExtractor  {
 
 	private File file;
-	private String directory;
+	private static String directory;
 	private String filePath;
 	static PedigreeNode wtf;
 	ArrayList<String> signatureExtractList = new ArrayList<String>();
 	static ArrayList<PedigreeNode> kids = new ArrayList<PedigreeNode>();
 	static JSONObject obj = new JSONObject();
 	private static Map<File,String> pedigreeMap = new HashMap<File,String>();
-	private static ArrayList<PedigreeRecord> grandchildPedigreeList = new ArrayList<PedigreeRecord>();
-	private static ArrayList<PedigreeRecord> childPedigreeList = new ArrayList<PedigreeRecord>();
+	private static List<PedigreeRecord> pedigreeList = new ArrayList<PedigreeRecord>();
+	private static List<PedigreeRecord> grandchildPedigreeList = new ArrayList<PedigreeRecord>();
+	private static List<PedigreeRecord> tempgrandchildPedigreeList = new ArrayList<PedigreeRecord>();
+	private static List<PedigreeRecord> childPedigreeList = new ArrayList<PedigreeRecord>();
 
 	public SignatureExtractor(File file) throws Exception {
 		if (file.isDirectory()) {
@@ -130,23 +134,39 @@ public class SignatureExtractor  {
 		
 	}
 	
-	public static ArrayList<PedigreeRecord> sigMap2PedigreeList(Map<File,String> signatureMap){
+	private static PedigreeRecord getParentPedigree(){
+		PedigreeRecord parent = new PedigreeRecord(new File(directory));
+		ArrayList<String> parentguids = new ArrayList<String>();
+		parentguids.add("0");
+		parent.setParentguids(parentguids);
+		parent.setPedigreeType("Folder");
+		pedigreeList.add(parent);
+		return parent;
+		
+	}
+	
+	public static List<PedigreeRecord> sigMap2PedigreeList(Map<File,String> signatureMap){
+		
+		PedigreeRecord parentPedigree = getParentPedigree();
 		for (Map.Entry<File, String> entry : signatureMap.entrySet()){
+			ArrayList<String> parentguids = new ArrayList<String>();
 			PedigreeRecord child = new PedigreeRecord(entry.getKey());	
+			parentguids.add(parentPedigree.getGuid());
+			child.setParentguids(parentguids);
 			childPedigreeList.add(child);
-			PedigreeNode tempnode = null;
-			tempnode = new PedigreeNode(tempnode, child);
 		}
+		
 		return childPedigreeList;
 		
 	}
 	
-	public static ArrayList<PedigreeRecord> grandChildList(Map<File,String> signatureMap,String outputfolder){
+	public static List<PedigreeRecord> grandChildList(Map<File,String> signatureMap,String outputfolder){
+		
 		FileProcessor writer = new FileProcessor();	
 		for (Map.Entry<File, String> entry : signatureMap.entrySet()){	
 			String name = entry.getKey().getName();
 			String output = outputfolder + name +".signature";
-			System.out.println(name);
+		
 			writer.useByfferedFileWriter(entry.getValue(),outputfolder + name+".signature");
 			
 			PedigreeRecord grandchild = new PedigreeRecord(new File(output));
@@ -154,18 +174,46 @@ public class SignatureExtractor  {
 			
 		}
 		
+		
+		
 		return grandchildPedigreeList;
 		
 	}
 	
-	public static ArrayList<PedigreeRecord> pedigreeList(){
-		ArrayList<PedigreeRecord> pedigreeList = new ArrayList<PedigreeRecord>();
+	public static List<PedigreeRecord> pedigreeList(){
+		
 		pedigreeList.addAll(childPedigreeList);
-		pedigreeList.addAll(grandchildPedigreeList);
+		pedigreeList.addAll(tempgrandchildPedigreeList);
+		
 		return pedigreeList;
 		
 	}
 
+	public static void getParentIds(){
+	
+
+		for (PedigreeRecord childRecord : childPedigreeList){
+		//	System.out.println(childRecord.getGuid());
+			String child_name = null;
+			String grand_child_name = null;
+			for (PedigreeRecord grandChildRecord : grandchildPedigreeList){
+				 ArrayList<String> parentguids = new ArrayList<String>(); 
+				 PedigreeRecord tempGrand2 = new PedigreeRecord(new File(grandChildRecord.getPath()));
+				 child_name = childRecord.getFilename();
+				 grand_child_name = grandChildRecord.getFilename();
+				if(grand_child_name.contains(child_name)){
+					parentguids.add(childRecord.getGuid());
+					parentguids.addAll(childRecord.getParentguids());
+					grandChildRecord.setParentguids(parentguids);		
+				 tempGrand2.setParentguids(parentguids);
+				 tempgrandchildPedigreeList.add(tempGrand2);
+				}
+				
+				
+			}
+		}
+		
+	}
 
 	public static void main(String[] args) throws Exception {
 		String dir = null;
@@ -230,10 +278,12 @@ public class SignatureExtractor  {
 		sigMap2PedigreeList(pedigreeMap);
 		
 		grandChildList(pedigreeMap,outputfolder);
-	//	System.out.println(pedigreeList());
+		getParentIds();
+		
 	
+
 		avroWriter.avroWriter(pedigreeList());
-//Need to Add parent iDS to children
+		
 		//writer.jsonWriter(obj,outputfolder);
 	}
 
