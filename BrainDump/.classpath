@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/javax.mail-1.5.2.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/jangada.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/minorThird.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/jarchivelib-0.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/pcs-core-0.7.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/derby-10.11.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/derbyclient-10.11.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/mysql-connector-java-5.1.18.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/avro-1.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/jopt-simple-4.8.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/avro-tools-1.7.6.jar"/>
+	<classpathentry kind="lib" path="/home/frostpmr/Downloads/gson-2.3.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

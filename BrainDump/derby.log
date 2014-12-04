@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Thu Nov 13 13:16:19 EST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0149-aa5e-cafd-000006e5d920 
+on database directory /home/frostpmr/test/BrainDump/myDB with class loader sun.misc.Launcher$AppClassLoader@2cdb03a1 
+Loaded from file:/home/frostpmr/Downloads/derby-10.11.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_51-mockbuild_2014_06_09_19_19-b00
+user.dir=/home/frostpmr/test/BrainDump
+os.name=Linux
+os.arch=amd64
+os.version=3.10.0-123.el7.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Nov 13 13:16:28 EST 2014:
+Shutting down instance a816c00e-0149-aa5e-cafd-000006e5d920 on database directory /home/frostpmr/test/BrainDump/myDB with class loader sun.misc.Launcher$AppClassLoader@2cdb03a1 

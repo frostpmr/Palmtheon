@@ -1,0 +1,56 @@
+import java.io.File;
+import java.util.UUID;
+
+/*
+ * The current implementation of Pedigree Record only accepts Files.
+ */
+import java.io.File;
+import java.util.UUID;
+
+/*
+ * The current implementation of Pedigree Record only accepts File objects
+ */
+public class PedigreeRecord {
+
+	private UUID uniqueID;
+	
+	private String pedigreeType = "File";
+	
+	private File file;
+	
+	private String filename;
+
+	public PedigreeRecord(File file) {
+		this.uniqueID = UUID.randomUUID();
+		this.pedigreeType = pedigreeType;
+		this.file = file;
+		this.filename = file.getName();
+		
+	}
+	
+	public UUID getGuid() {
+		return uniqueID.randomUUID();
+	}
+
+	public String getPedigreeType() {
+		return pedigreeType;
+	}
+
+	public void setPedigreeType(String pedigreeType) {
+		this.pedigreeType = pedigreeType;
+	}
+	
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	
+	public String getFilename() {
+		filename = file.getName();
+		return filename;
+	}
+
+	public File getFile(){
+		   return file;
+	}
+	
+}

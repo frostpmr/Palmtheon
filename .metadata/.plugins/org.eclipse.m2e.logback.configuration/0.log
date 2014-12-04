@@ -1,0 +1,142 @@
+2014-11-06 08:30:11,004 [Worker-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/grid/parent/0.0.1-SNAPSHOT/maven-metadata.xml
+2014-11-06 08:30:11,046 [Worker-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/grid/parent/0.0.1-SNAPSHOT/parent-0.0.1-SNAPSHOT.pom
+2014-11-06 08:30:11,052 [Worker-4] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: 1 problem was encountered while building the effective model for grid:rest:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Could not find artifact grid:parent:pom:0.0.1-SNAPSHOT in ECC (http://nexus-caf:8081/nexus/content/groups/public) and 'parent.relativePath' points at wrong local POM @ line 4, column 10
+ for project grid:rest:0.0.1-SNAPSHOT at /home/frostpmr/test/rest/WebContent/META-INF/maven/grid/rest/pom.xml
+org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model for grid:rest:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Could not find artifact grid:parent:pom:0.0.1-SNAPSHOT in ECC (http://nexus-caf:8081/nexus/content/groups/public) and 'parent.relativePath' points at wrong local POM @ line 4, column 10
+ for project grid:rest:0.0.1-SNAPSHOT at /home/frostpmr/test/rest/WebContent/META-INF/maven/grid/rest/pom.xml
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:152) ~[maven-core-3.2.1.jar:3.2.1]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:105) ~[maven-core-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:629) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:779) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:913) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:775) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:188) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:80) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.ui.internal.actions.SelectionUtil.getMavenProject(SelectionUtil.java:259) [org.eclipse.m2e.core.ui_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor.readMavenProject(MavenPomEditor.java:753) [org.eclipse.m2e.editor_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor$6.run(MavenPomEditor.java:1073) [org.eclipse.m2e.editor_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.0.v20140424-0053.jar:na]
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model for grid:rest:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Could not find artifact grid:parent:pom:0.0.1-SNAPSHOT in ECC (http://nexus-caf:8081/nexus/content/groups/public) and 'parent.relativePath' points at wrong local POM @ line 4, column 10
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:195) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParentExternally(DefaultModelBuilder.java:848) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParent(DefaultModelBuilder.java:669) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:307) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:145) ~[maven-core-3.2.1.jar:3.2.1]
+	... 15 common frames omitted
+2014-11-06 08:40:14,061 [Worker-8] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: 1 problem was encountered while building the effective model for grid:web-app:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to find grid:parent:pom:0.0.1-SNAPSHOT in http://nexus-caf:8081/nexus/content/groups/public was cached in the local repository, resolution will not be reattempted until the update interval of ECC has elapsed or updates are forced and 'parent.relativePath' points at wrong local POM @ line 5, column 10
+ for project grid:web-app:0.0.1-SNAPSHOT at /home/frostpmr/test/mallard/WebContent/META-INF/maven/grid/web-app/pom.xml
+org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model for grid:web-app:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to find grid:parent:pom:0.0.1-SNAPSHOT in http://nexus-caf:8081/nexus/content/groups/public was cached in the local repository, resolution will not be reattempted until the update interval of ECC has elapsed or updates are forced and 'parent.relativePath' points at wrong local POM @ line 5, column 10
+ for project grid:web-app:0.0.1-SNAPSHOT at /home/frostpmr/test/mallard/WebContent/META-INF/maven/grid/web-app/pom.xml
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:152) ~[maven-core-3.2.1.jar:3.2.1]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:105) ~[maven-core-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:629) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:779) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:913) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:775) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:188) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:80) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.ui.internal.actions.SelectionUtil.getMavenProject(SelectionUtil.java:259) [org.eclipse.m2e.core.ui_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor.readMavenProject(MavenPomEditor.java:753) [org.eclipse.m2e.editor_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor$6.run(MavenPomEditor.java:1073) [org.eclipse.m2e.editor_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.0.v20140424-0053.jar:na]
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model for grid:web-app:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to find grid:parent:pom:0.0.1-SNAPSHOT in http://nexus-caf:8081/nexus/content/groups/public was cached in the local repository, resolution will not be reattempted until the update interval of ECC has elapsed or updates are forced and 'parent.relativePath' points at wrong local POM @ line 5, column 10
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:195) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParentExternally(DefaultModelBuilder.java:848) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParent(DefaultModelBuilder.java:669) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:307) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:145) ~[maven-core-3.2.1.jar:3.2.1]
+	... 15 common frames omitted
+2014-11-07 08:43:06,280 [Worker-1] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: 1 problem was encountered while building the effective model for grid:web-app:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to find grid:parent:pom:0.0.1-SNAPSHOT in http://nexus-caf:8081/nexus/content/groups/public was cached in the local repository, resolution will not be reattempted until the update interval of ECC has elapsed or updates are forced and 'parent.relativePath' points at wrong local POM @ line 5, column 10
+ for project grid:web-app:0.0.1-SNAPSHOT at /home/frostpmr/test/mallard/WebContent/META-INF/maven/grid/web-app/pom.xml
+org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model for grid:web-app:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to find grid:parent:pom:0.0.1-SNAPSHOT in http://nexus-caf:8081/nexus/content/groups/public was cached in the local repository, resolution will not be reattempted until the update interval of ECC has elapsed or updates are forced and 'parent.relativePath' points at wrong local POM @ line 5, column 10
+ for project grid:web-app:0.0.1-SNAPSHOT at /home/frostpmr/test/mallard/WebContent/META-INF/maven/grid/web-app/pom.xml
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:152) ~[maven-core-3.2.1.jar:3.2.1]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:105) ~[maven-core-3.2.1.jar:3.2.1]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:629) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:779) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:913) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:775) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:188) ~[org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:80) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.ui.internal.actions.SelectionUtil.getMavenProject(SelectionUtil.java:259) [org.eclipse.m2e.core.ui_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor.readMavenProject(MavenPomEditor.java:753) [org.eclipse.m2e.editor_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor$6.run(MavenPomEditor.java:1073) [org.eclipse.m2e.editor_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.0.v20140424-0053.jar:na]
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model for grid:web-app:0.0.1-SNAPSHOT
+[FATAL] Non-resolvable parent POM: Failure to find grid:parent:pom:0.0.1-SNAPSHOT in http://nexus-caf:8081/nexus/content/groups/public was cached in the local repository, resolution will not be reattempted until the update interval of ECC has elapsed or updates are forced and 'parent.relativePath' points at wrong local POM @ line 5, column 10
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:195) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParentExternally(DefaultModelBuilder.java:848) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParent(DefaultModelBuilder.java:669) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:307) ~[maven-model-builder-3.2.1.jar:3.2.1]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:145) ~[maven-core-3.2.1.jar:3.2.1]
+	... 15 common frames omitted
+2014-11-18 11:58:52,986 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.jar
+2014-11-18 11:58:53,070 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.jar
+2014-11-18 11:58:53,322 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+2014-11-18 11:58:53,582 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+2014-11-18 11:58:53,802 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.pom
+2014-11-18 11:58:53,813 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.pom
+2014-11-18 11:58:54,238 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.pom
+2014-11-18 11:58:54,247 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.pom
+2014-11-18 11:58:54,258 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler/1.9.1/plexus-compiler-1.9.1.pom
+2014-11-18 11:58:54,267 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler/1.9.1/plexus-compiler-1.9.1.pom
+2014-11-18 11:58:54,279 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.20/plexus-components-1.1.20.pom
+2014-11-18 11:58:54,296 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.20/plexus-components-1.1.20.pom
+2014-11-18 11:58:54,313 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.pom
+2014-11-18 11:58:54,322 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.pom
+2014-11-18 11:58:54,338 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.pom
+2014-11-18 11:58:54,346 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.pom
+2014-11-18 11:58:54,392 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compilers/1.9.1/plexus-compilers-1.9.1.pom
+2014-11-18 11:58:54,399 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compilers/1.9.1/plexus-compilers-1.9.1.pom
+2014-11-18 11:58:54,425 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.jar
+2014-11-18 11:58:54,436 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.jar
+2014-11-18 11:58:54,439 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.jar
+2014-11-18 11:58:54,448 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.jar
+2014-11-18 11:58:54,452 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.jar
+2014-11-18 11:58:54,462 [Worker-376] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://nexus-caf:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.jar
+2014-11-18 11:58:54,904 [Worker-376] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: SignatureExtract:core:0.0.1-SNAPSHOT @ /home/frostpmr/test/core/pom.xml.
+2014-11-18 11:58:55,219 [Worker-376] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /core/src/main/java
+2014-11-18 11:58:55,220 [Worker-376] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /core/src/main/resources
+2014-11-18 11:58:55,220 [Worker-376] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /core/src/test/java
+2014-11-18 11:58:55,220 [Worker-376] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /core/src/test/resources
+2014-11-18 11:58:55,661 [Worker-381] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: SignatureExtract:core:0.0.1-SNAPSHOT @ /home/frostpmr/test/core/pom.xml.
+2014-11-18 11:58:55,877 [Worker-381] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 11:58:55,883 [Worker-381] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 11:58:55,886 [Worker-381] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 11:58:55,887 [Worker-381] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 11:58:55,964 [Worker-381] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: SignatureExtract:core:0.0.1-SNAPSHOT @ /home/frostpmr/test/core/pom.xml.
+2014-11-18 11:58:56,977 [Worker-382] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 11:58:56,978 [Worker-382] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 11:58:56,980 [Worker-382] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 11:58:56,980 [Worker-382] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 11:59:48,479 [Worker-372] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 11:59:48,480 [Worker-372] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 11:59:48,481 [Worker-372] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 11:59:48,482 [Worker-372] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 12:00:07,670 [Worker-381] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 12:00:07,671 [Worker-381] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-11-18 12:00:07,672 [Worker-381] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-11-18 12:00:07,672 [Worker-381] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

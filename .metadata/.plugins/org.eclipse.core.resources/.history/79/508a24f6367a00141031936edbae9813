@@ -1,0 +1,107 @@
+
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.avro.Schema;
+import org.apache.avro.file.DataFileReader;
+import org.apache.avro.file.DataFileWriter;
+import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericDatumReader;
+import org.apache.avro.generic.GenericDatumWriter;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.io.DatumReader;
+import org.apache.avro.io.DatumWriter;
+import org.apache.avro.reflect.ReflectData;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+
+
+public class HelloWorld {
+
+	public static ArrayList<GenericRecord> jsonToMap(ArrayList<String> jsonlist){
+		Schema schema = ReflectData.get().getSchema(PedigreeRecord.class);
+		GenericRecord rec = new GenericData.Record(schema);
+		ArrayList<GenericRecord> recordList = new ArrayList<GenericRecord>();
+		
+		ArrayList<Map<String,Object>> maplist = new ArrayList<Map<String,Object>>(); 
+		for (String json : jsonlist){
+		Map<String, Object> pedigreeRecordMap = new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>() {}.getType());
+		maplist.add(pedigreeRecordMap);
+		
+		for (Map<String, Object> map : maplist) {
+		for (Map.Entry<String, Object> entry : map.entrySet())
+		 	rec.put(entry.getKey(), entry.getValue());
+			System.out.println(rec);
+			
+			recordList.add(rec);
+			
+		}
+		}
+		System.out.println(recordList);
+		return recordList;
+		
+	}
+	public static void main(String[] args) throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		Gson gson = new Gson();	
+		Schema schema = ReflectData.get().getSchema(PedigreeRecord.class);
+		ArrayList<String> jsonlist = new ArrayList<String>();
+		
+		PedigreeRecord file_1 = new PedigreeRecord(new File("/home/frostpmr/Downloads/braindump/file.txt"));
+		PedigreeRecord file_2 = new PedigreeRecord(new File("/home/frostpmr/Downloads/braindump/file2.txt"));
+		String json2 = gson.toJson(file_2);
+		String json = gson.toJson(file_1);
+		jsonlist.add(json);
+		jsonlist.add(json2);
+		ArrayList<GenericRecord> recordlist2 = jsonToMap(jsonlist);
+		Map<String, Object> pedigreeRecordMap = new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>() {}.getType());
+		
+		
+		GenericRecord user1 = new GenericData.Record(schema);
+
+		for (Map.Entry<String, Object> entry : pedigreeRecordMap.entrySet())
+			 	user1.put(entry.getKey(), entry.getValue());
+		
+		//----------------------------------Here we go-----------------------------------------------------------
+		
+		
+		
+		
+		File avroOutput = new File("/home/frostpmr/Downloads/braindump/ped2smap.txt");
+
+		DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<GenericRecord>(schema);
+		DataFileWriter<GenericRecord> dataFileWriter = new DataFileWriter<GenericRecord>(datumWriter);
+		
+		dataFileWriter.create(schema, avroOutput);
+		for(GenericRecord record : recordlist2){
+			dataFileWriter.append(record);
+		}
+		dataFileWriter.close();
+		
+		DatumReader<GenericRecord> datumReader = new GenericDatumReader<GenericRecord>(schema);
+		DataFileReader<GenericRecord> dataFileReader = new DataFileReader<GenericRecord>(avroOutput, datumReader);
+		GenericRecord user = null;
+		while (dataFileReader.hasNext()) {
+		// Reuse user object by passing it to next(). This saves us from
+		// allocating and garbage collecting many objects for files with
+		// many items.
+		user = dataFileReader.next(user);
+	//	System.out.println(user);
+		        
+
+		
+	}
+}
+}
+
