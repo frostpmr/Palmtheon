@@ -39,7 +39,6 @@ public class Avro {
 		GenericRecord rec = new GenericData.Record(schema);
 		for (Map.Entry<String, Object> entry : pedigreeRecordMap.entrySet())
 		 	rec.put(entry.getKey(), entry.getValue());
-			
 			recordList.add(rec);
 		}
 		
@@ -50,8 +49,8 @@ public class Avro {
 	public void avroWriter(List<PedigreeRecord> list) throws IOException{
 		Gson gson = new Gson();	
 		Schema schema = ReflectData.get().getSchema(PedigreeRecord.class);
-//		System.out.println("my Schema: " + schema);
-//		System.out.println("\n");
+		System.out.println("my Schema: " + schema);
+		System.out.println("\n");
 		ArrayList<String> jsonlist = new ArrayList<String>();
 		
 		for (PedigreeRecord record : list){
@@ -62,53 +61,6 @@ public class Avro {
 		
 		ArrayList<GenericRecord> recordlist2 = jsonListToGenericRecordList(jsonlist);
 
-		File avroOutput = new File("/home/frostpmr/Downloads/braindump/avroFinal.txt");
-
-		DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<GenericRecord>(schema);
-		DataFileWriter<GenericRecord> dataFileWriter = new DataFileWriter<GenericRecord>(datumWriter);
-		
-		dataFileWriter.create(schema, avroOutput);
-		for(GenericRecord record : recordlist2){
-			dataFileWriter.append(record);
-		}
-		dataFileWriter.close();
-		
-		DatumReader<GenericRecord> datumReader = new GenericDatumReader<GenericRecord>(schema);
-		DataFileReader<GenericRecord> dataFileReader = new DataFileReader<GenericRecord>(avroOutput, datumReader);
-		GenericRecord user = null;
-		while (dataFileReader.hasNext()) {
-		// Reuse user object by passing it to next(). This saves us from
-		// allocating and garbage collecting many objects for files with
-		// many items.
-		user = dataFileReader.next(user);
-		System.out.println(user);
-		        
-
-		
-	}
-	}
-	public static void main(String[] args) throws IOException, ParseException {
-		// TODO Auto-generated method stub
-		Gson gson = new Gson();	
-		Schema schema = ReflectData.get().getSchema(PedigreeRecord.class);
-		System.out.println("my Schema: " + schema);
-		System.out.println("\n");
-		ArrayList<String> jsonlist = new ArrayList<String>();
-		
-		PedigreeRecord file_1 = new PedigreeRecord(new File("/home/frostpmr/Downloads/braindump/marquis.txt"));
-		PedigreeRecord file_2 = new PedigreeRecord(new File("/home/frostpmr/Downloads/braindump/palmer.txt"));
-		String json2 = gson.toJson(file_2);
-		String json = gson.toJson(file_1);
-		jsonlist.add(json);
-		jsonlist.add(json2);
-	
-		ArrayList<GenericRecord> recordlist2 = jsonListToGenericRecordList(jsonlist);
-
-		//----------------------------------Here we go-----------------------------------------------------------
-		
-		
-		
-		
 		File avroOutput = new File("/home/frostpmr/Downloads/braindump/avroOutput.avro");
 
 		DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<GenericRecord>(schema);
@@ -127,12 +79,12 @@ public class Avro {
 		// Reuse user object by passing it to next(). This saves us from
 		// allocating and garbage collecting many objects for files with
 		// many items.
-		user = dataFileReader.next(user);
-		System.out.println(user);
+			user = dataFileReader.next(user);
+			System.out.println(user);
 		        
 
 		
 	}
-}
+	}
 }
 

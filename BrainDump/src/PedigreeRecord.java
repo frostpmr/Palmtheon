@@ -35,6 +35,9 @@ public class PedigreeRecord {
 	
 	private String eventRunId = "0000000000";
 	
+	public PedigreeRecord(){
+		
+	}
 	public PedigreeRecord(File file) {
 		this.uniqueID = UUID.randomUUID().toString();
 		this.pedigreeType = pedigreeType;
